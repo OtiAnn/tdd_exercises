@@ -15,4 +15,11 @@ RSpec.describe WorkingDayCalculator do
       expect(work_day.set_on_board_day).to eq('2016-01-05')
     end
   end
+
+  describe 'Q2: find the date in 5 workdays' do
+    it 'find the date in 5 workdays' do
+      expect(holiday.after_work_days_of(5)).to eq('2016-10-18')
+      expect(work_day.after_work_days_of(5)).to eq('2016-01-13')
+    end
+  end
 end

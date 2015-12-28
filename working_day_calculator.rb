@@ -18,6 +18,17 @@ class WorkingDayCalculator
     return @date.to_s
   end
 
+  def after_work_days_of num
+    @date = @date.next_day
+    while num > 0
+      if !holiday? @date
+        num -= 1
+      end
+      @date += 1
+    end
+    return @date.to_s
+  end
+
   private
 
   def holiday? date
