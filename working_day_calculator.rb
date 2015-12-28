@@ -11,6 +11,10 @@ class WorkingDayCalculator
     holiday? @date
   end
 
+  def is_workday?
+    (holiday? @date) ? false : true
+  end
+
   def set_on_board_day
     while holiday? @date
       @date += 1
