@@ -22,4 +22,16 @@ RSpec.describe WorkingDayCalculator do
       expect(work_day.after_work_days_of(5)).to eq('2016-01-13')
     end
   end
+
+  describe 'Q3: find last work day' do
+    it 'when holiday choose last work day' do
+      expect(holiday.is_holiday?).to be_truthy
+      expect(holiday.find_last_work_day).to eq('2016-10-07')
+    end
+
+    it 'when work_day just choose the day' do
+      expect(work_day.is_holiday?).not_to be_truthy
+      expect(work_day.find_last_work_day).to eq('2016-01-05')
+    end
+  end
 end

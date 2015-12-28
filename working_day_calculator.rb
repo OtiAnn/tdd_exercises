@@ -29,6 +29,13 @@ class WorkingDayCalculator
     return @date.to_s
   end
 
+  def find_last_work_day
+    while holiday? @date
+      @date -= 1
+    end
+    return @date.to_s
+  end
+
   private
 
   def holiday? date
